@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import Navigation from './components/Navigation';
+
+const AppWrapper = styled.div`
+  background-image: url("https://www.desktop-background.com/download/1280x1024/2014/01/19/703573_the-smurfs-wallpapers-1920x1080-2-hebus-org-high-definition_1920x1080_h.jpg");
+  height: 100vh;`
 
 class App extends Component {
   constructor(props) {
@@ -38,7 +43,7 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
   render() {
     return (
-      <div className="App">
+      <AppWrapper>
         <Route 
           path="/">
           <Navigation />  
@@ -51,12 +56,10 @@ class App extends Component {
         </Route>
 
         <Route
-          path="/smurf-form"
-          render={props => (
-            <SmurfForm />
-          )}>
+          path="/smurf-form">
+          <SmurfForm />
         </Route>
-      </div>
+      </AppWrapper>
     );
   }
 }
